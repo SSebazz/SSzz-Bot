@@ -1,0 +1,50 @@
+const Discord = require('discord.js');
+
+module.exports = async (client, interaction, args) => {
+  const channel = interaction.options.getChannel('channel');
+
+  client.embed({
+      title: `ℹ・Información del canal`,
+      desc: `Canal de información sobre: <#${channel.id}>`,
+      fields: [
+          {
+              name: "Tipo",
+              value: `${channel.type}`,
+              inline: true,
+          },
+          {
+              name: "ID",
+              value: `${channel.id}`,
+              inline: true,
+          },
+          {
+              name: "Tipo",
+              value: `${channel.type}`,
+              inline: true,
+          },
+          {
+              name: "Hecho en",
+              value: `${channel.createdAt}`,
+              inline: true,
+          },
+          {
+              name: "Asunto",
+              value: `${channel.topic ? channel.topic : 'N/A'}`,
+              inline: true,
+          },
+          {
+              name: "NSFW",
+              value: `${channel.nsfw}`,
+              inline: true,
+          },
+          {
+              name: "Padres",
+              value: `${channel.parentID ? channel.parentID : 'N/A'}`,
+              inline: true,
+          },
+      ],
+      type: 'editreply'
+  }, interaction)
+}
+
+   
